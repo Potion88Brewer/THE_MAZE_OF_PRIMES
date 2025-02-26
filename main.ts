@@ -96,8 +96,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, l
     scene.cameraShake(5, 500)
     tiles.setTileAt(location, assets.tile`transparency16`)
 })
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.reset()
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
-    game.splash("I AM THE EVIL ONE!")
+    game.splash("I AM THE EVIL ONE!", "I WILL PUT YOU AT THE START!")
+    pause(500)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile34`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile15`, function (sprite, location) {
     info.changeScoreBy(-5)
@@ -117,6 +122,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile24`, function (sprite, 
     game.setGameOverPlayable(false, music.melodyPlayable(music.baDing), true)
     game.setGameOverMessage(true, "YOU WON!")
     game.setGameOverEffect(true, effects.confetti)
+    game.setGameOverScoringType(game.ScoringType.HighScore)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile32`, function (sprite, location) {
+    game.splash("I AM THE KIND ONE!", "I WILL PUT YOU AT THE END!")
+    pause(500)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile33`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, location) {
     info.changeScoreBy(-5)
@@ -133,9 +144,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
     tiles.setTileAt(location, assets.tile`transparency16`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile12`, function (sprite, location) {
-    info.changeScoreBy(-5)
-    info.changeLifeBy(-1)
-    scene.cameraShake(5, 500)
+    info.changeScoreBy(10)
+    info.changeLifeBy(1)
     tiles.setTileAt(location, assets.tile`transparency16`)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -336,6 +346,7 @@ info.onScore(0, function () {
     game.setGameOverPlayable(false, music.melodyPlayable(music.jumpDown), true)
     game.setGameOverPlayable(false, music.melodyPlayable(music.wawawawaa), true)
     game.setGameOverMessage(false, "GAME OVER!")
+    game.setGameOverScoringType(game.ScoringType.HighScore)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, location) {
     info.changeScoreBy(-5)
@@ -436,6 +447,7 @@ info.onLifeZero(function () {
     game.setGameOverPlayable(false, music.melodyPlayable(music.jumpDown), true)
     game.setGameOverPlayable(false, music.melodyPlayable(music.wawawawaa), true)
     game.setGameOverMessage(false, "GAME OVER!")
+    game.setGameOverScoringType(game.ScoringType.HighScore)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, location) {
     info.changeScoreBy(-5)
@@ -506,7 +518,9 @@ game.setDialogFrame(img`
     f899ff.f98f..f898f..f89f98f..f898f..f89f..ff998f
     ffff...fff....fff....ff.ff....fff....ff.....ffff
     `)
-game.showLongText(" This is a maze. Get out of the maze, and collect as many prime numbers as possible! Non-primes will take your points and health. Good luck!", DialogLayout.Full)
+game.showLongText("Get out of this maze, and collect as many prime numbers as possible! Non-primes will take your points and health. A is the spacebar. Press B to reset. Good luck!", DialogLayout.Full)
+game.showLongText("There are evil ones, which is the opposite of the kind one. It says, 'I AM THE EVIL ONE! I WILL PUT YOU AT THE START!' at you, and put you at the start.", DialogLayout.Full)
+game.showLongText("There is a kind one, which is the opposite of the evil one. It says, 'I AM THE KIND ONE! I WILL PUT YOU AT THE END!' at you, and put you at the end.", DialogLayout.Full)
 info.setLife(3)
 info.setScore(1)
 scene.setBackgroundColor(1)
