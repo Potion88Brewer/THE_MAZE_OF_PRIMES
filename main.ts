@@ -1,7 +1,5 @@
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
-    info.changeScoreBy(-5)
-    info.changeLifeBy(-1)
-    scene.cameraShake(5, 500)
+    info.changeScoreBy(5)
     tiles.setTileAt(location, assets.tile`transparency16`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
