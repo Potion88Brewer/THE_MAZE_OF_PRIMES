@@ -7,7 +7,10 @@
         "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1",
         "controller": "*",
         "animation": "*",
-        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0"
+        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0",
+        "browser-events": "*",
+        "darts": "*",
+        "Sprite Grid": "github:microsoft/arcade-grid#v1.3.0"
     },
     "files": [
         "main.blocks",
@@ -15,13 +18,16 @@
         "README.md",
         "assets.json",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "main.py",
+        "images.g.jres",
+        "images.g.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.12.59",
+        "target": "2.0.56",
         "targetId": "arcade"
     },
     "supportedTargets": [
