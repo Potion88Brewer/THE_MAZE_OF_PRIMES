@@ -122,11 +122,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile24`, function (sprite, 
     game.setGameOverEffect(true, effects.confetti)
     game.setGameOverScoringType(game.ScoringType.HighScore)
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile32`, function (sprite, location) {
-    game.splash("I AM THE KIND ONE!", "I WILL PUT YOU AT THE END!")
-    pause(500)
-    tiles.placeOnRandomTile(mySprite, assets.tile`myTile33`)
-})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, location) {
     info.changeScoreBy(-5)
     info.changeLifeBy(-1)
@@ -518,7 +513,6 @@ game.setDialogFrame(img`
     `)
 game.showLongText("Get out of this maze, and collect as many prime numbers as possible! Non-primes will take your points and health. A is the spacebar. Press B to reset. Good luck!", DialogLayout.Full)
 game.showLongText("There are evil ones, which is the opposite of the kind one. It says, 'I AM THE EVIL ONE! I WILL PUT YOU AT THE START!' at you, and put you at the start.", DialogLayout.Full)
-game.showLongText("There is a kind one, which is the opposite of the evil one. It says, 'I AM THE KIND ONE! I WILL PUT YOU AT THE END!' at you, and put you at the end.", DialogLayout.Full)
 info.setLife(3)
 info.setScore(1)
 scene.setBackgroundColor(1)
